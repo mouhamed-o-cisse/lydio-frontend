@@ -103,8 +103,8 @@ export async function getUnavailableClients() {
 
 // get one order
 
-export async function getSingleQuote(quote_id) {
-  const response = await fetch(`${DOMAIN}/get-quote/${quote_id}`);
+export async function getSingleOrder(order_id) {
+  const response = await fetch(`${DOMAIN}/orders/get-one/${order_id}`);
   const data = await response.json();
 
   if (!response.ok) {
@@ -112,7 +112,7 @@ export async function getSingleQuote(quote_id) {
   }
 
   const loadedQuote = {
-    id: quote_id,
+    id: order_id,
     ...data,
   };
 
@@ -120,7 +120,8 @@ export async function getSingleQuote(quote_id) {
 }
 
 export async function newOrder(orderData) {
-  const response = await fetch(`${DOMAIN}/newquote`, {
+  // console.log(orderData)
+  const response = await fetch(`${DOMAIN}/orders/neworder`, {
     method: 'POST',
     body: JSON.stringify(orderData),
     headers: {
@@ -138,7 +139,7 @@ export async function newOrder(orderData) {
 
 export async function updateOrder(orderUpdateData) {
   // console.log(quoteUpdateData.quote_id)
-  const response = await fetch(`${DOMAIN}/update/${orderUpdateData.order_id}`, {
+  const response = await fetch(`${DOMAIN}/orders/update-order/${orderUpdateData.order_id}`, {
     method: 'PUT',
     body: JSON.stringify(orderUpdateData),
     headers: {

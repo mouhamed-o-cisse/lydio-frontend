@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { Fragment } from 'react';
 import NotTreatedOrdersComponent from "../components/Orders/NotTreatedOrdersComponent";
-// import AllQuotes from '../components/quotes/AllQuotes';
 import LoadingSpinner from '../components/UI/LoadingSpinner';
 // import NoQuotesFound from '../components/quotes/NoQuotesFound';
 import useHttp from '../hooks/use-http';
