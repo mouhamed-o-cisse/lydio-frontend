@@ -2,7 +2,7 @@ import Card from "../UI/Card";
 import { useRef, useState } from 'react';
 // import { Prompt } from 'react-router-dom';
 
-import LoadingSpinner from '../UI/LoadingSpinner';
+// import LoadingSpinner from '../UI/LoadingSpinner';
 import classes from './ModalForm.module.css';
 
 function ModalForm (props){
@@ -63,8 +63,8 @@ function ModalForm (props){
         >
           {props.isLoading && (
             <div className={classes.loading}>
-              <LoadingSpinner />
-              {/* <p>is Loading...</p> */}
+              {/* <LoadingSpinner /> */}
+              <p>is Loading...</p>
             </div>
           )}
 

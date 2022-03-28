@@ -1,6 +1,6 @@
 import { useState, useRef, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import LoadingSpinner from '../UI/LoadingSpinner';
+// import LoadingSpinner from '../UI/LoadingSpinner';
 import AuthContext from '../../store/auth-context';
 import classes from './LoginComponent.module.css';
 import{ AiOutlineEye }from'react-icons/ai'; 
@@ -107,7 +107,8 @@ const AuthForm = () => {
           {!isLoading && (
             <button>Se connecter </button>
           )}
-          {isLoading && <LoadingSpinner />}
+          {/* {isLoading && <LoadingSpinner /> } */}
+          {isLoading && <p>Loading...</p> }
           {/* <button
             type='button'
             className={classes.toggle}
