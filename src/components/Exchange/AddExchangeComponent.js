@@ -2,7 +2,7 @@ import Card from "../UI/Card";
 import { useRef, useState } from 'react';
 // import { Prompt } from 'react-router-dom';
 
-import LoadingSpinner from '../UI/LoadingSpinner';
+import LoadingSpinner from "../UI/LoadingSpinner";
 import classes from './AddExchangeComponent.module.css';
 
 
