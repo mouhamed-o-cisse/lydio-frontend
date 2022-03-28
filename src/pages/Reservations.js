@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Fragment } from 'react';
 import ReservationsComponent from "../components/Orders/ReservationsComponent";
-import LoadingSpinner from '../components/UI/LoadingSpinner';
+// import LoadingSpinner from '../components/UI/LoadingSpinner';
 // import NoQuotesFound from '../components/quotes/NoQuotesFound';
 import useHttp from '../hooks/use-http';
 import { getReservations } from '../lib/api';
@@ -22,7 +22,8 @@ const Reservations = () => {
   if (status === 'pending') {
     return (
       <div className='centered'>
-        <LoadingSpinner />
+        {/* <LoadingSpinner /> */}
+        {/*  */}<p>Loading...</p>
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Fragment } from 'react';
 import ConfirmedOrdersComponent from "../components/Orders/ConfirmedOrdersComponent";
-import LoadingSpinner from '../components/UI/LoadingSpinner';
+// import LoadingSpinner from '../components/UI/LoadingSpinner';
 // import NoQuotesFound from '../components/quotes/NoQuotesFound';
 import useHttp from '../hooks/use-http';
 import { getDeliveredOrders } from '../lib/api';
@@ -22,7 +22,8 @@ function DeliveredOrders (){
       if (status === 'pending') {
         return (
           <div className='centered'>
-            <LoadingSpinner />
+            {/* <LoadingSpinner /> */}
+            <p>Loading...</p>
           </div>
         );
       }

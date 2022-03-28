@@ -5,7 +5,7 @@ import HighlightedExchange from '../components/Exchange/HighlightedExchange';
 import useHttp from '../hooks/use-http';
 import useHttp2 from '../hooks/use-http2';
 import { getSingleExchange, updateExchangeStatus } from '../lib/api';
-import LoadingSpinner from '../components/UI/LoadingSpinner';
+// import LoadingSpinner from '../components/UI/LoadingSpinner';
 import ExchangeStatusButtons from '../components/StatusButtons/ExchangeStatusButtons';
 
 
@@ -32,7 +32,8 @@ function ExchangeDetail (){
     if (status === 'pending') {
       return (
         <div className='centered'>
-          <LoadingSpinner />
+          {/* <LoadingSpinner /> */}
+          <p>Loading...</p>
         </div>
       );
     }
@@ -48,7 +49,8 @@ function ExchangeDetail (){
     if (status2 === 'pending'){
       return (
         <div className='centered'>
-          <LoadingSpinner />
+          {/* <LoadingSpinner /> */}
+          <p>Loading...</p>
         </div>
       );
     }

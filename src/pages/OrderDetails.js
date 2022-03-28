@@ -6,7 +6,7 @@ import HighlightedOrder from '../components/Orders/HighlightedOrder';
 import useHttp from '../hooks/use-http';
 import useHttp2 from '../hooks/use-http2';
 import { getSingleOrder, updateStatus } from '../lib/api';
-import LoadingSpinner from '../components/UI/LoadingSpinner';
+// import LoadingSpinner from '../components/UI/LoadingSpinner';
 import StatusButtons from '../components/StatusButtons/StatusButtons';
 
 import './thecssfile.css';
@@ -37,7 +37,8 @@ function OrderDetails (){
   if (status === 'pending') {
     return (
       <div className='centered'>
-        <LoadingSpinner />
+        {/* <LoadingSpinner /> */}
+        <p>Loading...</p>
       </div>
     );
   }
@@ -61,7 +62,8 @@ function OrderDetails (){
   if (status2 === 'pending'){
     return (
       <div className='centered'>
-        <LoadingSpinner />
+        {/* <LoadingSpinner /> */}
+        <p>Loading...</p>
       </div>
     );
   }

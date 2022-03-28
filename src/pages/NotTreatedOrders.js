@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Fragment } from 'react';
 import NotTreatedOrdersComponent from "../components/Orders/NotTreatedOrdersComponent";
-import LoadingSpinner from '../components/UI/LoadingSpinner';
+// import LoadingSpinner from '../components/UI/LoadingSpinner';
 // import NoQuotesFound from '../components/quotes/NoQuotesFound';
 import useHttp from '../hooks/use-http';
 import { getNotTreatedOrders } from '../lib/api';
@@ -20,7 +20,7 @@ const NotTreatedOrders = () => {
   if (status === 'pending') {
     return (
       <div className='centered'>
-        <LoadingSpinner />
+        {/* <LoadingSpinner /> */}
       </div>
     );
   }

@@ -2,7 +2,7 @@ import GetExchanges from "../components/Exchange/GetExchanges";
 import AddExchanges from "../components/Exchange/AddExchange";
 import { useEffect } from 'react';
 import { Fragment } from 'react';
-import LoadingSpinner from '../components/UI/LoadingSpinner';
+// import LoadingSpinner from '../components/UI/LoadingSpinner';
 // import NoQuotesFound from '../components/quotes/NoQuotesFound';
 import useHttp from '../hooks/use-http';
 import { getExchanges } from '../lib/api';
@@ -25,7 +25,8 @@ function Exchange (){
       if (status === 'pending') {
         return (
           <div className='centered'>
-            <LoadingSpinner />
+            {/* <LoadingSpinner /> */}
+            <p>Loading...</p>
           </div>
         );
       }
