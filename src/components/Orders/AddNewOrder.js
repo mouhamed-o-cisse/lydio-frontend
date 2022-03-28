@@ -10,6 +10,7 @@ function AddNewOrder (props){
 
     const shopifyIdInputRef = useRef();
     const namesInputRef = useRef();
+    const orderDateInputRef = useRef();
     const phoneNumberInputRef = useRef();
     const deliveryAddressInputRef = useRef();
     const quantityInputRef = useRef();
@@ -23,6 +24,7 @@ function AddNewOrder (props){
 
     const enteredShopifyId = shopifyIdInputRef.current.value;
     const enteredNames = namesInputRef.current.value;
+    const enteredOrderDate = orderDateInputRef.current.value;
     const enteredPhoneNumber = phoneNumberInputRef.current.value;
     const enteredDeliveryAddress = deliveryAddressInputRef.current.value;
     const enteredQuantity = quantityInputRef.current.value;
@@ -36,6 +38,7 @@ function AddNewOrder (props){
     props.onNewOrder({ 
       shopify_order_id: enteredShopifyId, 
       names: enteredNames, 
+      order_date: enteredOrderDate, 
       client_phone_number: enteredPhoneNumber, 
       delivery_address: enteredDeliveryAddress, 
       quantity: enteredQuantity, 
@@ -71,6 +74,10 @@ function AddNewOrder (props){
           <div className={classes.control}>
             <label htmlFor='shopify_order_id'>ID Shopify</label>
             <input type='text' id='shopify_order_id' placeholder='#0000' ref={shopifyIdInputRef} />
+          </div>
+          <div className={classes.control}>
+            <label htmlFor='order_date'>Date la commande</label>
+            <input type='date' id='order_date' placeholder='' ref={orderDateInputRef} />
           </div>
           <div className={classes.control}>
             <label htmlFor='names'>Prénom et nom</label>

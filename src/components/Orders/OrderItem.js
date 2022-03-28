@@ -4,24 +4,27 @@ import classes from './OrderItem.module.css';
 
 function OrderItem (props){
     return (
-        <li className={classes.item}>
-          <figure>
-            <blockquote>
-              <p>{props.shopify_order_id}</p>
-            </blockquote>
-            <figcaption>{props.names}</figcaption>
-            <figcaption>{props.client_phone_number}</figcaption>
-            <figcaption>{props.delivery_address}</figcaption>
-            <figcaption>{props.registration_date}</figcaption>
-            <figcaption>{props.watch_brand_and_model}</figcaption>
-            <figcaption>{props.watch_price}</figcaption>
-            <figcaption>{props.order_date}</figcaption>
-            <figcaption>{props.order_date}</figcaption>
-          </figure>
+      <tr className={classes.all}>
+        <td>{props.shopify_order_id}</td>
+        <td>{props.names} </td>
+        <td>{props.client_phone_number}</td>
+        <td>{props.delivery_address}</td>
+        <td>{props.registration_date}</td>
+        <td>{props.order_date}</td>
+        { props.order_status === 'reservation' &&  <td>{props.delivery_date} <br /> <span> Der maj du statut de liv : <br/> {props.order_status_last_update} </span> </td> }
+        { props.order_status === 'confirmed' &&  <td>{props.delivery_date} </td> }
+        { props.order_status === 'confirmed' &&  <td>{props.comment} </td> }
+        { props.order_status === 'confirmed' &&  <td>{props.creneau} </td> }
+        { props.order_status === 'confirmed' &&  <td>{props.order_status_last_update} </td> }
+        {/* <td>{props.delivery_status}</td> */}
+        {/* <td>{props.comment}</td> */}
+        {/* <td>{props.creneau}</td> order_status_last_update*/}
+        <td>
           <Link className='btn' to={`/detail-cmd/${props.order_id}`}>
-            View The detail
+               Details
           </Link>
-        </li>
+        </td>
+      </tr>
       );
 }
 

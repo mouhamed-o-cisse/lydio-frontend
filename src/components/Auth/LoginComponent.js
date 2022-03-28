@@ -31,7 +31,7 @@ const AuthForm = () => {
 
     setIsLoading(true);
     let url;
-      url = 'http://localhost:2500/users/login'    
+      url = 'https://lydio-backend-app.herokuapp.com/users/login'    
     fetch(url, {
       method: 'POST',
       body: JSON.stringify({
@@ -86,14 +86,14 @@ const AuthForm = () => {
 
   return (
     <section className={classes.auth}>
-      <h1>Login  </h1>
+      <h1>Connexion  </h1>
       <form onSubmit={submitHandler}>
         <div className={classes.control}>
-          <label htmlFor='email'>Your Email</label>
-          <input type='email' id='email' required ref={emailInputRef} />
+          <label htmlFor='email'>Nom d'utilisateur</label>
+          <input type='text' id='email' required ref={emailInputRef} />
         </div>
         <div className={classes.control}>
-          <label htmlFor='password'>Your Password</label>
+          <label htmlFor='password'>Mot de passe</label>
           <input
             type={passwordShown ? "text" : "password"}
             id='password'
@@ -105,7 +105,7 @@ const AuthForm = () => {
         { authInvalid && <div> <p>Indentifiant(s) incorrect(s)</p> </div> }
         <div className={classes.actions}>
           {!isLoading && (
-            <button>Login </button>
+            <button>Se connecter </button>
           )}
           {isLoading && <LoadingSpinner />}
           {/* <button

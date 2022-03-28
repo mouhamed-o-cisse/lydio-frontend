@@ -1,97 +1,78 @@
-import { NavLink } from 'react-router-dom';
-
 import { useContext } from 'react';
 
 import classes from './MainNavigation.module.css';
 import AuthContext from '../../store/auth-context';
+import { Navbar,Dropdown , Nav, Container } from 'react-bootstrap';
+
+import {LinkContainer} from 'react-router-bootstrap'
+
+import { Link } from 'react-router-dom';
+
+import{ BsFillPersonLinesFill }from'react-icons/bs'; 
+
 
 
 
 const MainNavigation = () => {
   const authCtx = useContext(AuthContext);
 
-  // const isLoggedIn = authCtx.isLoggedIn;
+  const isLoggedIn = authCtx.isLoggedIn;
 
-  // const logoutHandler = () => {
-  //   authCtx.logout();
-  //   // optional: redirect the user
+  const logoutHandler = () => {
+    authCtx.logout();
+    // optional: redirect the user
+  };
+
+  // const text = {
+  //   color: 'red',
   // };
 
   return (
-    <header className={classes.header}>
-      <div className={classes.logo}>My test app</div>
-      <nav className={classes.nav}>
-        <ul>
-        {/* {isLoggedIn && ( */}
-          <li>
-            <NavLink to='/accueil' className={navData => navData.isActive ? classes.active : '' }>
-              Page D'accueil
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='/pas-traitees' className={navData => navData.isActive ? classes.active : '' }>
-              Pas traitees
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='/reservations' className={navData => navData.isActive ? classes.active : '' }>
-              Reservations
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='/confirmees' className={navData => navData.isActive ? classes.active : '' }>
-              Confirmées 
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='/injoignables' className={navData => navData.isActive ? classes.active : '' }>
-              Injoignables
-            </NavLink>
-          </li>
-        {/* )}   */}
-        {/* {isLoggedIn && (
-          <li>
-            <NavLink to='/text' className={navData => navData.isActive ? classes.active : '' }>
-              Text Page
-            </NavLink>
-          </li>
-        )}  
-        {isLoggedIn && (
-          <li>
-            <NavLink to='/addquote' className={navData => navData.isActive ? classes.active : '' }>
-              Add Quote
-            </NavLink>
-          </li>
-         )}  
-        {isLoggedIn && (
-          <li>
-            <NavLink to='/quotes' className={navData => navData.isActive ? classes.active : '' }>
-              Quote List
-            </NavLink>
-          </li>
-        )}  
-        {isLoggedIn && (
-          <li>
-            <NavLink to='/new-user' className={navData => navData.isActive ? classes.active : '' }>
-              New User
-            </NavLink>
-          </li>
-          )}
-        {!isLoggedIn && (
-          <li>
-            <NavLink to='/login' className={navData => navData.isActive ? classes.active : '' }>
-              Login
-            </NavLink>
-          </li>
-        )}        
-       {isLoggedIn && (
-            <li>
-              <button onClick={logoutHandler}>Logout</button>
-            </li>
-        )} */}
-        </ul>
-      </nav>
-    </header>
+    <div className={classes.header}>
+      <Navbar collapseOnSelect expand="lg" bg="dark" sticky="top" variant="dark" fixed="top">
+    <Container sticky="top" variant="dark" fixed="top">
+      <Navbar.Brand as={Link} to="/">Lydio gestion des commandes</Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="me-auto">
+        {isLoggedIn && ( <LinkContainer to="/pas-traitees">
+          <Nav.Link className={navData => navData.isActive ? classes.active : '' }> Pas traitées </Nav.Link>
+        </LinkContainer> )}
+        {isLoggedIn && ( <LinkContainer to="/injoignables">
+          <Nav.Link className={navData => navData.isActive ? classes.active : '' }> Injoignables </Nav.Link>
+        </LinkContainer>)}
+        {isLoggedIn && ( <LinkContainer to="/reservations">
+          <Nav.Link className={navData => navData.isActive ? classes.active : '' }> Réservations </Nav.Link>
+        </LinkContainer>)}
+        {isLoggedIn && ( <LinkContainer to="/confirmees">
+          <Nav.Link className={navData => navData.isActive ? classes.active : '' }> Confirmées </Nav.Link>
+        </LinkContainer>)}
+        </Nav>
+        <Nav>
+        {isLoggedIn && ( <LinkContainer to="/en-cours-de-livraison">
+            <Nav.Link className={navData => navData.isActive ? classes.active : '' }> En cours de livraison </Nav.Link>
+          </LinkContainer>)}
+          {isLoggedIn && ( <LinkContainer to="/livrees">
+            <Nav.Link className={navData => navData.isActive ? classes.active : '' }> Livrées </Nav.Link>
+          </LinkContainer>)}
+  
+          {isLoggedIn && (<Dropdown>
+  
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Profile <BsFillPersonLinesFill />
+            </Dropdown.Toggle>
+          
+            <Dropdown.Menu>
+              {/* <Dropdown.Item as={Link} to="/reservations">reserv</Dropdown.Item> */}
+               <Dropdown.Item onClick={logoutHandler} >Se déconnecter</Dropdown.Item> 
+            </Dropdown.Menu>
+          </Dropdown> )}
+        </Nav>
+      </Navbar.Collapse>
+    </Container>
+</Navbar>
+    </div>
+  
   );
 };
 

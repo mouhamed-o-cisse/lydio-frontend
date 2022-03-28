@@ -6,6 +6,8 @@ import LoadingSpinner from '../components/UI/LoadingSpinner';
 import useHttp from '../hooks/use-http';
 import { getReservations } from '../lib/api';
 
+import './Common.css';
+
 const Reservations = () => {
   const { sendRequest, status, data: loadedOrders, error } = useHttp(
     getReservations,
@@ -33,14 +35,14 @@ const Reservations = () => {
     // return <NoQuotesFound />;
     return (
      <div>
-        <h1> Commandes en réservation : {loadedOrders.length} </h1>
-        <p>Pas de commandes en réservation</p>
+        <h1 className='title'> Commandes en réservation : {loadedOrders.length} </h1>
+        <p className='title'>Pas de commandes en réservation</p>
       </div>
       )
   }
     return (
       <Fragment>
-        <h1> Commandes en réservation : {loadedOrders.length} </h1>
+        <h1 className='title'> Commandes en réservation : {loadedOrders.length} </h1>
         <ReservationsComponent orders={loadedOrders} orderLength={loadedOrders.length} />
       </Fragment>    
     );

@@ -12,6 +12,11 @@ import NotFoundPage from './pages/NotFoundPage';
 import NotTreatedOrders from './pages/NotTreatedOrders';
 import Reservations from './pages/Reservations';
 import OrderDetails from './pages/OrderDetails';
+import Exchange from './pages/Exchange';
+import ExchangeDetail from './pages/ExchangeDetail'; 
+import InDeliveryOrders from './pages/InDeliveryOrders';
+import DeliveredOrders from './pages/DeliveredOrder';
+import Login from './pages/Login';
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -33,15 +38,26 @@ function App() {
   {!authCtx.isLoggedIn && ( <Route path='/' element={<Login />} /> )}
   {!authCtx.isLoggedIn && <Route path='*' element={<Navigate replace to='/login' />} />
    } */}
-  <Route path='/' element={<Navigate replace to='/accueil' />} />
-  <Route path='/accueil' element={<HomePage />} />
-  <Route path='/not-found' element={<NotFoundPage />} />
-  <Route path='/pas-traitees' element={<NotTreatedOrders />} />
-  <Route path='/confirmees' element={<ConfirmedOrders />} />
-  <Route path='/injoignables' element={<UnreachableClients />} />
-  <Route path='/reservations' element={<Reservations />} />
-  
-  <Route path='/detail-cmd/:order_id' element={<OrderDetails />} />
+  {authCtx.isLoggedIn && ( <Route path='/' element={<Navigate replace to='/accueil' />} />)}
+  {authCtx.isLoggedIn && ( <Route path='/accueil' element={<HomePage />} />)}
+  {authCtx.isLoggedIn && ( <Route path='/not-found' element={<NotFoundPage />} />)}
+  {authCtx.isLoggedIn && ( <Route path='/echange' element={<Exchange />} />)}
+  {authCtx.isLoggedIn && ( <Route path='/pas-traitees' element={<NotTreatedOrders />} />)}
+  {authCtx.isLoggedIn && ( <Route path='/confirmees' element={<ConfirmedOrders />} />)}
+  {authCtx.isLoggedIn && ( <Route path='/injoignables' element={<UnreachableClients />} />)}
+  {authCtx.isLoggedIn && ( <Route path='/reservations' element={<Reservations />} />)}
+  {authCtx.isLoggedIn && ( <Route path='/en-cours-de-livraison' element={<InDeliveryOrders />} />)}
+  {authCtx.isLoggedIn && ( <Route path='/livrees' element={<DeliveredOrders />} />)}
+  {authCtx.isLoggedIn && ( <Route path='*' element={<NotFoundPage />} /> )}
+
+  {authCtx.isLoggedIn && ( <Route path='/detail-echange/:exchange_id' element={<ExchangeDetail />} />)}
+  {authCtx.isLoggedIn && ( <Route path='/detail-cmd/:order_id' element={<OrderDetails />} />)}
+
+  {!authCtx.isLoggedIn && ( <Route path='/' element={<Login />} /> )}
+  {!authCtx.isLoggedIn && ( <Route path='/login' element={<Login />} />)}
+  {!authCtx.isLoggedIn && <Route path='*' element={<Navigate replace to='/login' />} />}
+
+
       
     </Routes>
   </Layout>

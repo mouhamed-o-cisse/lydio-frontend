@@ -1,0 +1,23 @@
+.buttons {
+  margin: 5px;
+}
+
+.form button{
+  margin : 15px 0 15px 0 ;
+}
+
+.whole{
+  width: 50%;
+  margin: 10px auto;
+}
+
+
+@media print {
+  /* invert the display (show/hide) properties of the main */
+  /* aplication component and the printing component       */
+  
+  .buttons{
+    display: none;
+  }
+
+}

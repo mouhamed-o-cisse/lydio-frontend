@@ -6,6 +6,8 @@ import LoadingSpinner from '../components/UI/LoadingSpinner';
 import useHttp from '../hooks/use-http';
 import { getConfirmedOrders } from '../lib/api';
 
+import './Common.css';
+
 function ConfirmedOrders (){
     const { sendRequest, status, data: loadedOrders, error } = useHttp(
         getConfirmedOrders,
@@ -33,14 +35,14 @@ function ConfirmedOrders (){
         // return <NoQuotesFound />;
         return (
          <div>
-            <h1> Commandes confirmées : {loadedOrders.length} </h1>
-            <p>Pas de commandes confirmées</p>
+            <h1 className='title'> Commandes confirmées : {loadedOrders.length} </h1>
+            <p className='title'>Pas de commandes confirmées</p>
           </div>
           )
       }
         return (
           <Fragment>
-            <h1> Commandes confirmées : {loadedOrders.length} </h1>
+            <h1 className='title'> Commandes confirmées : {loadedOrders.length} </h1>
             <ConfirmedOrdersComponent orders={loadedOrders} orderLength={loadedOrders.length} />
           </Fragment>    
         );

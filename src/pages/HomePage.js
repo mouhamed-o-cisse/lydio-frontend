@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useHttp from '../hooks/use-http';
 import { newOrder } from '../lib/api';
+import ExcelUploadComponent from '../components/ExcelUpload.js/ExcelUploadComponent';
 
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -19,7 +20,7 @@ function HomePage (){
       console.log('finished but an error occured')
     }
     if (status === 'completed-successfully') {
-      navigate('/');
+      navigate('/pas-traitees');
       console.log('finished and succefull')
     }
     if (error) {
@@ -61,6 +62,8 @@ function HomePage (){
         </Modal.Body>
       </Modal>
     </>
+
+    <ExcelUploadComponent />
       
     </Fragment>
   );

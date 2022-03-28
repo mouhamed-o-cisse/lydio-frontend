@@ -1,20 +1,58 @@
 .quote {
-    background-color: #162b2b;
-    color: white;
+    background-color: #a5dddd;
+    color: black;
     border-radius: 6px;
     padding: 3rem;
     margin: 3rem auto;
-    width: 90%;
-    max-width: 40rem;
+    width: 100%;
+    max-width: 60%;
   }
   
-  .quote p {
-    font-size: 2.5rem;
-  }
+  /* .first{
+    font-size: 3px;
+  } */
   
-  .quote figcaption {
-    font-style: italic;
-    font-size: 1.5rem;
-    text-align: right;
-    color: #a1e0e0;
+  .quote td {
+    /* font-style: italic; */
+    font-size: 18px;
+    text-align: center;
+    color: #000000;
+  }
+
+  .quote td span{
+    /* font-style: italic; */
+    font-size: 8px;
+    text-align: center;
+    color: #353535;
+  }
+
+  .quote .first {
+    /* font-size: 12px; */
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .invoice{
+    background-color: aqua;
+  }
+
+  .invoice{
+    display: none;
+  }
+ .invoiceheader{
+   margin-top: 20px;
+   font-size: 10px;
+   font-weight: bold;
+ }
+
+  @media print {
+    /* invert the display (show/hide) properties of the main */
+    /* aplication component and the printing component       */
+
+    .quote{
+      display: none;
+    }
+   .invoice{
+     display: block;
+   }
   }

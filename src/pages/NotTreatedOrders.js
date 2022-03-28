@@ -5,6 +5,7 @@ import LoadingSpinner from '../components/UI/LoadingSpinner';
 // import NoQuotesFound from '../components/quotes/NoQuotesFound';
 import useHttp from '../hooks/use-http';
 import { getNotTreatedOrders } from '../lib/api';
+import './Common.css';
 
 const NotTreatedOrders = () => {
   const { sendRequest, status, data: loadedOrders, error } = useHttp(
@@ -15,7 +16,6 @@ const NotTreatedOrders = () => {
   useEffect(() => {
     sendRequest();
   }, [sendRequest]);
-
 
   if (status === 'pending') {
     return (
@@ -33,14 +33,14 @@ const NotTreatedOrders = () => {
     // return <NoQuotesFound />;
     return (
      <div>
-        <h1> Commandes pas encore traitées : {loadedOrders.length} </h1>
-        <p>Pas de commandes non traitées</p>
+        <h1 className='title'> Commandes pas encore traitées : {loadedOrders.length} </h1>
+        <p className='title'>Pas de commandes non traitées</p>
       </div>
       )
   }
     return (
       <Fragment>
-        <h1> Commandes pas encore traitées : {loadedOrders.length} </h1>
+        <h1 className='title'> Commandes pas encore traitées : {loadedOrders.length} </h1>
         <NotTreatedOrdersComponent orders={loadedOrders} orderLength={loadedOrders.length} />
       </Fragment>    
     );

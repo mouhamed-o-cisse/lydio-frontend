@@ -1,5 +1,6 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useEffect } from 'react';
 import { useParams, Outlet } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import HighlightedOrder from '../components/Orders/HighlightedOrder';
 import useHttp from '../hooks/use-http';
@@ -8,9 +9,15 @@ import { getSingleOrder, updateStatus } from '../lib/api';
 import LoadingSpinner from '../components/UI/LoadingSpinner';
 import StatusButtons from '../components/StatusButtons/StatusButtons';
 
+import './thecssfile.css';
+
+import './Common.css';
+
 
 function OrderDetails (){
-    const params = useParams();
+  const params = useParams();
+
+  const navigate = useNavigate();
 
   const { order_id } = params;
 
@@ -47,6 +54,10 @@ function OrderDetails (){
   sendRequest2(quoteUpdateData);
   };
 
+  // function refreshPage() {
+  //   window.location.reload(false);
+  // }
+
   if (status2 === 'pending'){
     return (
       <div className='centered'>
@@ -57,6 +68,26 @@ function OrderDetails (){
 
   if (error) {
     return <p className='centered'>{error}</p>;
+  }
+
+  if (status2 === 'completed-error'){
+    return (
+      <div className='centered'>
+        <p>an error occured</p>
+      </div>
+    );
+  }
+
+  // refreshPage();
+
+  if (status2 === 'completed-successfully'){
+    navigate(-1);
+    // refreshPage();
+    // return (
+    //   <div className='centered'>
+    //     <p>Sent successfully</p>
+    //   </div>
+    // );
   }
 
   // function visible () {
@@ -73,6 +104,7 @@ function OrderDetails (){
       <button onClick={invisible}>My invisible button</button> */}
       <HighlightedOrder 
         order_id={loadedOrder.order_id} 
+        invoice_id={loadedOrder.invoice_id} 
         names={loadedOrder.names} 
         order_date={loadedOrder.order_date}
         client_phone_number={loadedOrder.client_phone_number}
@@ -93,10 +125,17 @@ function OrderDetails (){
         payment_status={loadedOrder.payment_status}
         client_review={loadedOrder.client_review}
         delivery_date={loadedOrder.delivery_date}
+        creneau={loadedOrder.creneau}
+        person_to_join_in_case={loadedOrder.person_to_join_in_case}
         />
-      <p>{loadedOrder.order_id}</p>
+      {/* <p>{loadedOrder.order_id}</p> */}
       <Outlet />
-      <StatusButtons order_id={loadedOrder.order_id} onUpdateQuoteStatus={updateStatusHandler}/>
+      <StatusButtons 
+      order_id={loadedOrder.order_id} 
+      order_status={loadedOrder.order_status} 
+      delivery_status={loadedOrder.delivery_status}
+      order_treatment={loadedOrder.order_treatment} 
+      onUpdateQuoteStatus={updateStatusHandler}/>
     </Fragment>
   ); 
 }

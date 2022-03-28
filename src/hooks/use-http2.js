@@ -5,7 +5,7 @@ function httpReducer(state, action) {
     return {
       data: null,
       error2: null,
-      status: 'pending',
+      status2: 'pending',
     };
   }
 
@@ -13,7 +13,7 @@ function httpReducer(state, action) {
     return {
       data: action.responseData,
       error2: null,
-      status: 'completed',
+      status2: 'completed-successfully',
     };
   }
 
@@ -21,7 +21,7 @@ function httpReducer(state, action) {
     return {
       data: null,
       error2: action.errorMessage,
-      status: 'completed',
+      status2: 'completed-error',
     };
   }
 
