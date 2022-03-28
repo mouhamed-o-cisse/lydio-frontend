@@ -38,6 +38,8 @@
 
   .invoice{
     display: none;
+    margin-bottom: 300px;
+
   }
  .invoiceheader{
    margin-top: 20px;

@@ -14,6 +14,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Table } from 'react-bootstrap';
 import logo from '../../assets/img/logo.jpg'
+import qrcode from '../../assets/img/osirisqrcode.png'
 import DeliveryStatusButtons from '../StatusButtons/DeliveryStatusButtons';
 
 const HighlightedOrder = (props) => {
@@ -82,6 +83,16 @@ const HighlightedOrder = (props) => {
 
   const imgStyle = {
     width: '200px',
+  };
+
+  const qrcodeStyle = {
+    margin: '10px 215px ' ,
+    width: '200px',
+    textAlign: 'center'
+  };
+
+  const h6Style = {
+    textAlign: 'center'
   };
 
   const centerStyle = {
@@ -296,118 +307,218 @@ const HighlightedOrder = (props) => {
 
  
 
-{/* // <!-- ---------------------------------------------------------------------------------- INVOICE --------------------------------------------------------------------------------------------------- --> */}
+{/* // <!-- ---------------------------------------------------------------------------------- Accounting INVOICE --------------------------------------------------------------------------------------------------- --> */}
 
   <div className={classes.invoice} >
-  <div className="invoice">
- <div className="invoice-header">
-  {/* <img src={logo} style={imgStyle} className="invoice-img" /> */}
- </div>
- <div className="invoice-body">
-  {/* <p>Numéro facture : {props.invoice_id}</p> */}
- </div>
- <div className="invoice-footer">
-  {/* <p>Numéro commande : {props.shopify_order_id}</p> */}
- </div>
 
- <div className="container">
-   <div className="row">
-     <div className="span4">
-        {/* <img src={logo} className="invoice-img" /> */}
-        <img src={logo} style={imgStyle} alt='logo' className="invoice-img" />
-        <p className={classes.invoiceheader}>Numéro facture : {props.invoice_id}</p>
-        <p className={classes.invoiceheader}>Numéro commande : {props.shopify_order_id}</p>
-       <address>
-           <strong>Osiris Watches</strong><br/>
-          Dakar, Sénégal
-       </address>
-     </div>
-     <div className="span4 well">
-       <table className="invoice-head">
-         <tbody>
+    <div className="invoice">
 
-           <tr>
-             <td className="pull-right"><strong>Prénom et Nom : </strong></td>
-             <td> {props.names}</td>
-           </tr>
-           <tr>
-             <td className="pull-right"><strong>Numéro de téléphone : </strong></td>
-             <td>{props.client_phone_number}</td>
-           </tr>
-           <tr>
-             <td className="pull-right"><strong>Adresse de livraison : </strong></td>
-             <td>{props.delivery_address}</td>
-           </tr>
-           <tr>
-             <td className="pull-right"><strong>Date Commande : </strong></td>
-             <td>{props.order_date}</td>
-           </tr>
-           <tr>
-             <td className="pull-right"><strong>Date Livraison : </strong></td>
-             <td>{props.delivery_date}</td>
-           </tr>
-           <tr>
-             <td className="pull-right"><strong>A joindre si le  <br/>client est injoignable : </strong></td>
-             {props.person_to_join_in_case &&<td>{props.person_to_join_in_case}</td> }
-             {!props.person_to_join_in_case &&<td>néant</td> }
-           </tr>
+      <div className="container">
+        <div className="row">
+          <div className="span4">
+             {/* <img src={logo} className="invoice-img" /> */}
+             <img src={logo} style={imgStyle} alt='logo' className="invoice-img" />
+             <p className={classes.invoiceheader}>Numéro facture : {props.invoice_id}</p>
+             <p className={classes.invoiceheader}>Numéro commande : {props.shopify_order_id}</p>
+            <address>
+                <strong>Osiris Watches</strong><br/>
+               Dakar, Sénégal
+            </address>
+          </div>
+          <div className="span4 well">
+            <table className="invoice-head">
+              <tbody>
+     
+                <tr>
+                  <td className="pull-right"><strong>Prénom et Nom : </strong></td>
+                  <td> {props.names}</td>
+                </tr>
+                <tr>
+                  <td className="pull-right"><strong>Numéro de téléphone : </strong></td>
+                  <td>{props.client_phone_number}</td>
+                </tr>
+                <tr>
+                  <td className="pull-right"><strong>Adresse de livraison : </strong></td>
+                  <td>{props.delivery_address}</td>
+                </tr>
+                <tr>
+                  <td className="pull-right"><strong>Date Commande : </strong></td>
+                  <td>{props.order_date}</td>
+                </tr>
+                <tr>
+                  <td className="pull-right"><strong>Date Livraison : </strong></td>
+                  <td>{props.delivery_date}</td>
+                </tr>
+                <tr>
+                  <td className="pull-right"><strong>A joindre si le  <br/>client est injoignable : </strong></td>
+                  {props.person_to_join_in_case &&<td>{props.person_to_join_in_case}</td> }
+                  {!props.person_to_join_in_case &&<td>néant</td> }
+                </tr>
+     
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div className="row">
+          <div className="span8">
+            <h2 style={centerStyle}>Facture </h2>
+            {/* <h2 style="text-align: center;">Facture Payé </h2> */}
+          </div>
+        </div>
+          <div className="row">
+            <div className="span8 well invoice-body">
+              <table className="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Quantité</th>
+                  <th>Désignation</th>
+                  <th>Prix produit</th>
+                  <th>Prix livraison</th>
+                  <th>Total : </th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td > {props.quantity} </td>
+                <td > {props.watch_brand_and_model} </td>
+                <td>{props.watch_price}</td>     
+                <td> {props.delivery_price} </td>
+                <td> { +props.watch_price + +props.delivery_price} </td>
+              </tr>
+              
+              </tbody>
+            </table>
+            </div>
+          </div>
+          <div className="row">
+            <div className="span8 well invoice-thank">
+              <h5 style={centerStyle}>Merci pour la confiance!</h5>
+              <h5 style={centerStyle}>OSIRIS vous assure une garantie d’un an pour votre (vos) montre(s) pour tout défaut de fabrication.</h5>
+            </div>
+          </div>
+          <div className="row">
+              <div className="span3">
+                  <strong>Service Client:</strong> +221 76 499 53 53
+              </div>
+              <div className="span3">
+                  <strong>Email:</strong> contact.osiriswatches@gmail.com
+              </div>
+              <div className="span3">
+                  <strong>Website:</strong> www.osiriswatchs.com
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-         </tbody>
-       </table>
-     </div>
-   </div>
-   <div className="row">
-     <div className="span8">
-       <h2 style={centerStyle}>Facture </h2>
-       {/* <h2 style="text-align: center;">Facture Payé </h2> */}
-     </div>
-   </div>
-   <div className="row">
-     <div className="span8 well invoice-body">
-       <table className="table table-bordered">
-       <thead>
-         <tr>
-           <th>Quantité</th>
-           <th>Désignation</th>
-           <th>Prix produit</th>
-           <th>Prix livraison</th>
-           <th>Total : </th>
-         </tr>
-       </thead>
-       <tbody>
-       <tr>
-         <td > {props.quantity} </td>
-         <td > {props.watch_brand_and_model} </td>
-         <td>{props.watch_price}</td>     
-         <td> {props.delivery_price} </td>
-         <td> { +props.watch_price + +props.delivery_price} </td>
-       </tr>
-       
-       </tbody>
-     </table>
-     </div>
-   </div>
-   <div className="row">
-     <div className="span8 well invoice-thank">
-       <h5 style={centerStyle}>Merci pour la confiance!</h5>
-       <h5 style={centerStyle}>OSIRIS vous assure une garantie d’un an pour votre (vos) montre(s) pour tout défaut de fabrication.</h5>
-     </div>
-   </div>
-   <div className="row">
-       <div className="span3">
-           <strong>Service Client:</strong> +221 76 499 53 53
-       </div>
-       <div className="span3">
-           <strong>Email:</strong> contact.osiriswatches@gmail.com
-       </div>
-       <div className="span3">
-           <strong>Website:</strong> www.osiriswatchs.com
-       </div>
-   </div>
- </div>
 
-</div>
-  </div>
+    {/* // <!-- ---------------------------------------------------------------------------------- Client INVOICE --------------------------------------------------------------------------------------------------- --> */}
+
+  <div className={classes.invoice} >
+
+    <div className="invoice">
+    
+      <div className="container">
+        <div className="row">
+          <div className="span4">
+             {/* <img src={logo} className="invoice-img" /> */}
+             <img src={logo} style={imgStyle} alt='logo' className="invoice-img" />
+             <p className={classes.invoiceheader}>Numéro facture : {props.invoice_id}</p>
+             <p className={classes.invoiceheader}>Numéro commande : {props.shopify_order_id}</p>
+            <address>
+                <strong>Osiris Watches</strong><br/>
+               Dakar, Sénégal
+            </address>
+          </div>
+          <div className="span4 well">
+            <table className="invoice-head">
+              <tbody>
+     
+                <tr>
+                  <td className="pull-right"><strong>Prénom et Nom : </strong></td>
+                  <td> {props.names}</td>
+                </tr>
+                <tr>
+                  <td className="pull-right"><strong>Numéro de téléphone : </strong></td>
+                  <td>{props.client_phone_number}</td>
+                </tr>
+                <tr>
+                  <td className="pull-right"><strong>Adresse de livraison : </strong></td>
+                  <td>{props.delivery_address}</td>
+                </tr>
+                <tr>
+                  <td className="pull-right"><strong>Date Commande : </strong></td>
+                  <td>{props.order_date}</td>
+                </tr>
+                <tr>
+                  <td className="pull-right"><strong>Date Livraison : </strong></td>
+                  <td>{props.delivery_date}</td>
+                </tr>
+                <tr>
+                  <td className="pull-right"><strong>A joindre si le  <br/>client est injoignable : </strong></td>
+                  {props.person_to_join_in_case &&<td>{props.person_to_join_in_case}</td> }
+                  {!props.person_to_join_in_case &&<td>néant</td> }
+                </tr>
+     
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div className="row">
+          <div className="span8">
+            <h2 style={centerStyle}>Reçu client</h2>
+            {/* <h2 style="text-align: center;">Facture Payé </h2> */}
+          </div>
+        </div>
+          <div className="row">
+            <div className="span8 well invoice-body">
+              <table className="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Quantité</th>
+                  <th>Désignation</th>
+                  <th>Prix produit</th>
+                  <th>Prix livraison</th>
+                  <th>Total : </th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td > {props.quantity} </td>
+                <td > {props.watch_brand_and_model} </td>
+                <td>{props.watch_price}</td>     
+                <td> {props.delivery_price} </td>
+                <td> { +props.watch_price + +props.delivery_price} </td>
+              </tr>
+              
+              </tbody>
+            </table>
+            </div>
+          </div>
+          <div className="row">
+            <div className="span8 well invoice-thank">
+              <h5 style={centerStyle}>Merci pour la confiance!</h5>
+              <h5 style={centerStyle}>OSIRIS vous assure une garantie d’un an pour votre (vos) montre(s) pour tout défaut de fabrication.</h5>
+            </div>
+          </div>
+          <div className="row">
+              <div className="span3">
+                  <strong>Service Client:</strong> +221 76 499 53 53
+              </div>
+              <div className="span3">
+                  <strong>Email:</strong> contact.osiriswatches@gmail.com
+              </div>
+              <div className="span3">
+                <strong>Siteweb:</strong> www.osiriswatchs.com <br/>
+                <img src={qrcode} style={qrcodeStyle} alt='qrcode' className="invoice-img" /> <br/>
+                <h6 style={h6Style}>Scannez moi pour acceder au siteweb</h6>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 </div>
   );
 };
