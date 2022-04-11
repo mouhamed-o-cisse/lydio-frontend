@@ -102,6 +102,56 @@ export async function getUnavailableClients() {
   return UnavailableClients;
 }
 
+// get cancelled orders order orders/get-cancelled-orders
+
+export async function getCancelledOrders() {
+  const response = await fetch(`${DOMAIN}/orders/get-cancelled-orders`);
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || 'Could not fetch quotes.');
+  }
+
+  const CancelledOrders = [];
+
+  for (const key in data) {
+    const quoteObj = {
+      id: key,
+      ...data[key],
+    };
+
+    CancelledOrders.push(quoteObj);
+    
+  }
+
+  return CancelledOrders;
+}
+
+// get returned orders order orders/get-returned-orders
+
+export async function getReturnedOrder() {
+  const response = await fetch(`${DOMAIN}/orders/get-returned-orders`);
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || 'Could not fetch quotes.');
+  }
+
+  const ReturnedOrders = [];
+
+  for (const key in data) {
+    const quoteObj = {
+      id: key,
+      ...data[key],
+    };
+
+    ReturnedOrders.push(quoteObj);
+    
+  }
+
+  return ReturnedOrders;
+}
+
 // get in delivery orders 
 
 export async function getInDeliveryOrders() {

@@ -20,6 +20,7 @@ const NotTreatedOrders = () => {
   if (status === 'pending') {
     return (
       <div className='centered'>
+        <p>Loading...</p>
         {/* <LoadingSpinner /> */}
       </div>
     );

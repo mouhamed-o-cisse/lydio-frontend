@@ -19,6 +19,15 @@ import DeliveryStatusButtons from '../StatusButtons/DeliveryStatusButtons';
 
 const HighlightedOrder = (props) => {
 
+  const convertedOrderDate = new Date (props.order_date).toLocaleString('fr-FR', { dateStyle: 'full', timeStyle: 'medium' })
+  const convertedRegistrationDate = new Date (props.registration_date).toLocaleString('fr-FR', { dateStyle: 'full', timeStyle: 'medium' })
+  const convertedDeliveryDate = new Date (props.delivery_date).toLocaleString('fr-FR', { dateStyle: 'full', timeStyle: 'medium' })
+  const convertedOrderStatusLastUpdate = new Date (props.order_status_last_update).toLocaleString('fr-FR', { dateStyle: 'full', timeStyle: 'medium' })
+  const convertedDeliveryStatusLastUpdate = new Date (props.delivery_status_last_update).toLocaleString('fr-FR', { dateStyle: 'full', timeStyle: 'medium' })
+ 
+
+  // console.log( date2);
+
   const { sendRequest, status, error } = useHttp(updateOrder);
 
   const { sendRequest2, status2, error2 } = useHttp2(updateDeliveryStatus);
@@ -194,19 +203,19 @@ const HighlightedOrder = (props) => {
           </tr>}
           <tr>
             <td colSpan={1} className={classes.first}> Date commande </td>
-            { props.order_date && <td colSpan={3}>{props.order_date}</td>}
+            { props.order_date && <td colSpan={3}>{convertedOrderDate}</td>}
             { !props.order_date && <td colSpan={3}>information pas disponible</td>}
           </tr>
           <tr>
             <td colSpan={1} className={classes.first}>Date d'enregistrement </td>
-            { props.registration_date && <td colSpan={3}>{props.registration_date}</td>}
-            { !props.registration_date && <td colSpan={3}>information pas disponible</td>}
+            { props.registration_date && <td colSpan={3}>{convertedRegistrationDate}</td>}
+            { !props.registration_date && <td colSpan={3}>information pas disponible</td>} 
           </tr>
           {/* Date livraison */}
           { (props.order_status === 'confirmed' || props.order_status === 'reservation') && <tr>
             <td colSpan={1} className={classes.first}>Date de livraison </td>
-            { props.delivery_date && <td colSpan={3}>{props.delivery_date}</td>}
-            { !props.delivery_date && <td colSpan={3}>information pas disponible</td>}
+            { props.delivery_date && <td colSpan={3}>{convertedDeliveryDate}</td>}
+            { !props.delivery_date && <td colSpan={3}>information pas disponible</td>} 
           </tr> } 
           {/* Order Status Confirmed */}
           { (props.order_status === 'confirmed' || props.order_status === 'reservation' || props.order_status === 'unreachable' ) && <tr> 
@@ -217,7 +226,7 @@ const HighlightedOrder = (props) => {
                 { props.order_status === 'reservation' &&   'Réservation'} 
                 { props.order_status === 'unreachable' &&   'Injoignable' } 
               <br/> 
-              { props.order_status_last_update && <span>Dernière modification : {props.order_status_last_update} </span>}
+              { props.order_status_last_update && <span>Dernière modification : {convertedOrderStatusLastUpdate} </span>}
               { !props.order_status_last_update && <span>Dernière modification : information pas disponible </span>}
             </td>}
             { !props.order_status && <td colSpan={3}>{props.order_status} <br/> 
@@ -235,7 +244,7 @@ const HighlightedOrder = (props) => {
               { props.delivery_status === 'in-delivery' && 'En cours de livraison'} 
               { props.delivery_status === 'delivered' && 'Livré'} 
               <br/>
-             { props.delivery_status_last_update && <span>Dernière modification : {props.delivery_status_last_update} </span>}
+             { props.delivery_status_last_update && <span>Dernière modification : {convertedDeliveryStatusLastUpdate} </span>}
              { !props.delivery_status_last_update && <span>Dernière modification : information pas disponible </span>}
             </td>}
             { !props.delivery_status && <td colSpan={3}>{props.delivery_status} <br/>
@@ -265,7 +274,9 @@ const HighlightedOrder = (props) => {
 
       
 
-    { ( props.delivery_status !== 'delivered' && props.delivery_status !== 'in-delivery' )  &&
+    { ( props.delivery_status !== 'delivered' && props.delivery_status !== 'in-delivery' && 
+      props.order_status !== 'cancelled' && props.delivery_status !== 'return'
+    )  &&
      
     <>
       <Button variant="primary" onClick={handleShow}>
@@ -343,11 +354,11 @@ const HighlightedOrder = (props) => {
                 </tr>
                 <tr>
                   <td className="pull-right"><strong>Date Commande : </strong></td>
-                  <td>{props.order_date}</td>
+                  <td>{convertedOrderDate}</td>
                 </tr>
                 <tr>
                   <td className="pull-right"><strong>Date Livraison : </strong></td>
-                  <td>{props.delivery_date}</td>
+                  <td>{convertedDeliveryDate}</td>
                 </tr>
                 <tr>
                   <td className="pull-right"><strong>A joindre si le  <br/>client est injoignable : </strong></td>
@@ -448,11 +459,11 @@ const HighlightedOrder = (props) => {
                 </tr>
                 <tr>
                   <td className="pull-right"><strong>Date Commande : </strong></td>
-                  <td>{props.order_date}</td>
+                  <td>{convertedOrderDate}</td>
                 </tr>
                 <tr>
                   <td className="pull-right"><strong>Date Livraison : </strong></td>
-                  <td>{props.delivery_date}</td>
+                  <td>{convertedDeliveryDate}</td>
                 </tr>
                 <tr>
                   <td className="pull-right"><strong>A joindre si le  <br/>client est injoignable : </strong></td>

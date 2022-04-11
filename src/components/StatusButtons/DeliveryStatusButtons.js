@@ -46,7 +46,7 @@ function DeliveryStatusButtons (props){
 
         <div className={classes.whole}>
 
-        { (props.order_status === 'confirmed' && props.delivery_status !== 'delivered')  &&
+        { (props.order_status === 'confirmed' && props.delivery_status !== 'delivered' && props.delivery_status !== 'return' )  &&
           <>
             <Button variant="primary" className={classes.buttons} onClick={handleShow}>
                 Mise à jour du statut de livraison

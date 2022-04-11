@@ -17,6 +17,8 @@ import ExchangeDetail from './pages/ExchangeDetail';
 import InDeliveryOrders from './pages/InDeliveryOrders';
 import DeliveredOrders from './pages/DeliveredOrder';
 import Login from './pages/Login';
+import CancelledOrders from './pages/CancelledOrders';
+import ReturnedOrders from './pages/ReturnedOrders';
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -46,6 +48,8 @@ function App() {
   {authCtx.isLoggedIn && ( <Route path='/confirmees' element={<ConfirmedOrders />} />)}
   {authCtx.isLoggedIn && ( <Route path='/injoignables' element={<UnreachableClients />} />)}
   {authCtx.isLoggedIn && ( <Route path='/reservations' element={<Reservations />} />)}
+  {authCtx.isLoggedIn && ( <Route path='/annulees' element={<CancelledOrders />} />)}
+  {authCtx.isLoggedIn && ( <Route path='/retours' element={<ReturnedOrders />} />)}
   {authCtx.isLoggedIn && ( <Route path='/en-cours-de-livraison' element={<InDeliveryOrders />} />)}
   {authCtx.isLoggedIn && ( <Route path='/livrees' element={<DeliveredOrders />} />)}
   {authCtx.isLoggedIn && ( <Route path='*' element={<NotFoundPage />} /> )}

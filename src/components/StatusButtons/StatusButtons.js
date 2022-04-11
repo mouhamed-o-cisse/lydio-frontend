@@ -171,7 +171,7 @@ function StatusButtons (props){
         </>
         }
 
-         { props.delivery_status !== 'delivered'  && 
+         { (props.delivery_status !== 'delivered' && props.order_status !== 'cancelled' && props.delivery_status !== 'return')  && 
            <>
             <Button variant="primary" className={classes.buttons} onClick={handleShow4}>
                 Annuler

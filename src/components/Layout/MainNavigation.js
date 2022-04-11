@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import classes from './MainNavigation.module.css';
 import AuthContext from '../../store/auth-context';
-import { Navbar,Dropdown , Nav, Container } from 'react-bootstrap';
+import { Navbar,Dropdown , Nav, Container, NavDropdown } from 'react-bootstrap';
 
 import {LinkContainer} from 'react-router-bootstrap'
 
@@ -35,26 +35,27 @@ const MainNavigation = () => {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
-        {isLoggedIn && ( <LinkContainer to="/pas-traitees">
-          <Nav.Link className={navData => navData.isActive ? classes.active : '' }> Pas traitées </Nav.Link>
-        </LinkContainer> )}
-        {isLoggedIn && ( <LinkContainer to="/injoignables">
-          <Nav.Link className={navData => navData.isActive ? classes.active : '' }> Injoignables </Nav.Link>
-        </LinkContainer>)}
-        {isLoggedIn && ( <LinkContainer to="/reservations">
-          <Nav.Link className={navData => navData.isActive ? classes.active : '' }> Réservations </Nav.Link>
-        </LinkContainer>)}
-        {isLoggedIn && ( <LinkContainer to="/confirmees">
-          <Nav.Link className={navData => navData.isActive ? classes.active : '' }> Confirmées </Nav.Link>
-        </LinkContainer>)}
+        {isLoggedIn && (  <NavDropdown title="Commandes à expédiés" id="basic-nav-dropdown">
+          <NavDropdown.Item as={Link} to="/pas-traitees" >Pas traitées</NavDropdown.Item>
+          <NavDropdown.Item as={Link} to="/injoignables" >Injoignables</NavDropdown.Item>
+          <NavDropdown.Item as={Link} to="/reservations" >Reservations</NavDropdown.Item>
+          <NavDropdown.Item as={Link} to="/confirmees" >Confirmées</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item as={Link} to="/annulees" >Annulées</NavDropdown.Item>
+        </NavDropdown>
+        )}
         </Nav>
+
         <Nav>
-        {isLoggedIn && ( <LinkContainer to="/en-cours-de-livraison">
-            <Nav.Link className={navData => navData.isActive ? classes.active : '' }> En cours de livraison </Nav.Link>
-          </LinkContainer>)}
-          {isLoggedIn && ( <LinkContainer to="/livrees">
-            <Nav.Link className={navData => navData.isActive ? classes.active : '' }> Livrées </Nav.Link>
-          </LinkContainer>)}
+        {isLoggedIn && ( <NavDropdown title="Commandes expédiés" id="basic-nav-dropdown">
+          <NavDropdown.Item as={Link} to="/reservations" >En cours de livraison</NavDropdown.Item>
+          <NavDropdown.Item as={Link} to="/livrees" >Livrées</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item as={Link} to="/retours" >Retours</NavDropdown.Item>
+        </NavDropdown>)}
+        
+        {/* {isLoggedIn && ( <LinkContainer to="/en-cours-de-livraison">
+            <Nav.Link className={navData => navData.isActive ? classes.active : '' }> En cours de livraison </Nav.Link>*/}
   
           {isLoggedIn && (<Dropdown>
   
@@ -63,7 +64,6 @@ const MainNavigation = () => {
             </Dropdown.Toggle>
           
             <Dropdown.Menu>
-              {/* <Dropdown.Item as={Link} to="/reservations">reserv</Dropdown.Item> */}
                <Dropdown.Item onClick={logoutHandler} >Se déconnecter</Dropdown.Item> 
             </Dropdown.Menu>
           </Dropdown> )}
