@@ -48,7 +48,7 @@ const MainNavigation = () => {
 
         <Nav>
         {isLoggedIn && ( <NavDropdown title="Commandes expédiés" id="basic-nav-dropdown">
-          <NavDropdown.Item as={Link} to="/reservations" >En cours de livraison</NavDropdown.Item>
+          <NavDropdown.Item as={Link} to="/en-cours-de-livraison" >En cours de livraison</NavDropdown.Item>
           <NavDropdown.Item as={Link} to="/livrees" >Livrées</NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item as={Link} to="/retours" >Retours</NavDropdown.Item>
