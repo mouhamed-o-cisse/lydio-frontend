@@ -78,7 +78,7 @@ function OrderItem (props){
                Details
           </Link>
         </td>
-        { props.order_status === 'confirmed' &&  
+        { (props.order_status === 'confirmed' && props.delivery_status !== 'delivered' ) &&  
         <td> <DeliveryGuyButton delivery_guy={props.delivery_guy} order_id= {props.order_id} onUpdateQuoteStatus={updateStatusHandler} /></td> }
       </tr>
 
