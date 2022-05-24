@@ -42,7 +42,7 @@ code {
   background-color: teal;
   color: white;
   border-radius: 4px;
-  padding: 0.75rem 1.5rem;
+  padding: 0.25rem 1.5rem;
   border: 1px solid teal;
   cursor: pointer;
 }
@@ -70,4 +70,10 @@ code {
 .btn--flat:active {
   background-color: teal;
   color: white;
+}
+
+@media print {
+  /* invert the display (show/hide) properties of the main */
+  /* aplication component and the printing component       */
+
 }

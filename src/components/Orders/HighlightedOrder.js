@@ -243,6 +243,7 @@ const HighlightedOrder = (props) => {
               { props.delivery_status === 'in-preparation' && 'En cours de préparation'} 
               { props.delivery_status === 'in-delivery' && 'En cours de livraison'} 
               { props.delivery_status === 'delivered' && 'Livré'} 
+              { props.delivery_status === 'return' && 'Retour'} 
               <br/>
              { props.delivery_status_last_update && <span>Dernière modification : {convertedDeliveryStatusLastUpdate} </span>}
              { !props.delivery_status_last_update && <span>Dernière modification : information pas disponible </span>}
@@ -313,6 +314,7 @@ const HighlightedOrder = (props) => {
     order_id={props.order_id} 
     order_status={props.order_status} 
     delivery_status={props.delivery_status} 
+    delivery_guy = {props.delivery_guy}
     onUpdateOrderDeliveryStatus={updateDeliveryStatusHandler}
     /> }
 
@@ -342,7 +344,7 @@ const HighlightedOrder = (props) => {
      
                 <tr>
                   <td className="pull-right"><strong>Prénom et Nom : </strong></td>
-                  <td> {props.names}</td>
+                  <td>{props.names}</td>
                 </tr>
                 <tr>
                   <td className="pull-right"><strong>Numéro de téléphone : </strong></td>
@@ -390,11 +392,11 @@ const HighlightedOrder = (props) => {
               </thead>
               <tbody>
               <tr>
-                <td > {props.quantity} </td>
-                <td > {props.watch_brand_and_model} </td>
+                <td>{props.quantity}</td>
+                <td>{props.watch_brand_and_model}</td>
                 <td>{props.watch_price}</td>     
-                <td> {props.delivery_price} </td>
-                <td> { +props.watch_price + +props.delivery_price} </td>
+                <td>{props.delivery_price}</td>
+                <td>{ +props.watch_price + +props.delivery_price}</td>
               </tr>
               
               </tbody>
@@ -495,11 +497,11 @@ const HighlightedOrder = (props) => {
               </thead>
               <tbody>
               <tr>
-                <td > {props.quantity} </td>
-                <td > {props.watch_brand_and_model} </td>
+                <td>{props.quantity}</td>
+                <td>{props.watch_brand_and_model}</td>
                 <td>{props.watch_price}</td>     
-                <td> {props.delivery_price} </td>
-                <td> { +props.watch_price + +props.delivery_price} </td>
+                <td>{props.delivery_price}</td>
+                <td>{ +props.watch_price + +props.delivery_price}</td>
               </tr>
               
               </tbody>

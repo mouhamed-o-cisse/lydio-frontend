@@ -1,17 +1,16 @@
 import { useEffect } from 'react';
 import { Fragment } from 'react';
-import ConfirmedOrdersComponent from "../components/Orders/ConfirmedOrdersComponent";
 // import LoadingSpinner from '../components/UI/LoadingSpinner';
 // import NoQuotesFound from '../components/quotes/NoQuotesFound';
 import useHttp from '../hooks/use-http';
-import { getConfirmedOrders } from '../lib/api';
-import { Link } from 'react-router-dom';
+import { getDeliveryGuysList } from '../lib/api';
+import ListOfDeliveryGuys from '../components/DeliveryGuy/ListOfDeliveryGuys';
 
 import './Common.css';
 
-function ConfirmedOrders (){
+function DeliveryGuysPage (){
     const { sendRequest, status, data: loadedOrders, error } = useHttp(
-        getConfirmedOrders,
+        getDeliveryGuysList,
         true
       );
     
@@ -36,22 +35,19 @@ function ConfirmedOrders (){
       if (status === 'completed-successfully' && (!loadedOrders || loadedOrders.length === 0)) {
         // return <NoQuotesFound />;
         return (
-         <div className='noorder'>
-            <h1 className='title'> Commandes confirmées : {loadedOrders.length} </h1>
-            <p className='title'>Pas de commandes confirmées</p>
-            {/* <p className='btn link'>wm</button> */}
-            <Link className='btn link' to={`/livreurs`}>
-               Aller à la page des liveurs
-            </Link>
+         <div>
+            <h1 className='title'> Commandes livrées : {loadedOrders.length} </h1>
+            <p className='title'>Pas de commandes livrées</p>
           </div>
           )
       }
         return (
           <Fragment>
-            <h1 className='title'> Commandes confirmées : {loadedOrders.length} </h1>
-            <ConfirmedOrdersComponent orders={loadedOrders} orderLength={loadedOrders.length} />
+            <h1 className='title'> Page des livreurs </h1>
+            {/* <ConfirmedOrdersComponent orders={loadedOrders} orderLength={loadedOrders.length} /> */}
+            <ListOfDeliveryGuys />
           </Fragment>    
         );
 }
 
-export default ConfirmedOrders;
+export default DeliveryGuysPage;

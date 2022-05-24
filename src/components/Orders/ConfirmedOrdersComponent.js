@@ -24,6 +24,7 @@ function ConfirmedOrdersComponent (props){
                 <th>Créneau</th>
                 <th>Dernière maj du statut de la commande</th>
                 <th>Details</th>
+                <th>Affecter un livreur</th>
               </tr>
             </thead>
             <tbody>
@@ -35,6 +36,7 @@ function ConfirmedOrdersComponent (props){
                       names={orders.names}
                       client_phone_number={orders.client_phone_number}
                       delivery_address={orders.delivery_address}
+                      delivery_status = {orders.delivery_status}
                       registration_date={orders.registration_date}
                       shopify_order_id={orders.shopify_order_id}
                       delivery_date={orders.delivery_date}

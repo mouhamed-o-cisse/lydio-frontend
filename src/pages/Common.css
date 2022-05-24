@@ -7,3 +7,47 @@
     padding: 15px;
     border-radius: 10px;
 }
+
+.noorder{
+    margin: 0 auto;
+    /* background-color: aqua; */
+    width: 40%;
+    text-align: center;
+}
+
+.todisplay{
+    display: none;
+}
+
+thead th{
+    font-size: small;
+    /* font-size: medium; */
+    
+}
+
+tbody th {
+    font-size: small;
+    font-weight: 400;
+}
+
+.link{
+    text-align: center;
+    margin: 10px auto ;
+    text-align: center;
+    width: fit-content;
+
+}
+
+@media print {
+    /* invert the display (show/hide) properties of the main */
+    /* aplication component and the printing component       */
+    .title{
+        display: none;
+    }
+    .tohide{
+        display: none;
+    }
+    .todisplay{
+        display: block;
+    }
+  }

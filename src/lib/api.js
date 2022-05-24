@@ -1,6 +1,31 @@
 // const DOMAIN = 'http://localhost:2800';
 const DOMAIN = 'https://lydio-backend-app.herokuapp.com';
 
+// get delivery guy list  
+
+export async function getDeliveryGuysList() {
+  const response = await fetch(`${DOMAIN}/delivery_guy/get-all`);
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || 'Could not fetch quotes.');
+  }
+
+  const DeliveryGuysList = [];
+
+  for (const key in data) {
+    const quoteObj = {
+      id: key,
+      ...data[key],
+    };
+
+    DeliveryGuysList.push(quoteObj);
+  }
+  // console.log(NotTreatedOrders)
+
+  return DeliveryGuysList;
+}
+
 // get not treated orders orders/get-untreated 
 
 export async function getNotTreatedOrders() {
@@ -263,6 +288,49 @@ export async function getSingleExchange(exchage_id) {
   return loadedExchange;
 }
 
+// get delivery guy orders 
+
+export async function getDeliveryGuyOrders(delivery_guy_id) {
+  const response = await fetch(`${DOMAIN}/orders/get-delivery_guy-orders/${delivery_guy_id}`);
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || 'Could not fetch quotes.');
+  }
+
+  const DeliveryGuyOrders = [];
+
+  for (const key in data) {
+    const quoteObj = {
+      id: key,
+      ...data[key],
+    };
+
+    DeliveryGuyOrders.push(quoteObj);
+  }
+  // console.log(NotTreatedOrders)
+
+  return DeliveryGuyOrders;
+}
+
+// Get One delivery Guy
+
+export async function getSingleDeliveryGuy(delivery_guy_id) {
+  const response = await fetch(`${DOMAIN}/delivery_guy/get-one/${delivery_guy_id}`);
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || 'Could not fetch quote.');
+  }
+
+  const loadedExchange = {
+    id: delivery_guy_id,
+    ...data,
+  };
+
+  return loadedExchange;
+}
+
 export async function newOrder(orderData) {
   // console.log(orderData)
   const response = await fetch(`${DOMAIN}/orders/neworder`, {
@@ -288,6 +356,26 @@ export async function newExchange(exchangeData) {
   const response = await fetch(`${DOMAIN}/exchanges/newexchange`, {
     method: 'POST',
     body: JSON.stringify(exchangeData),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || 'Could not create quote.');
+  }
+
+  return null;
+}
+
+// Update delivery guy 
+
+export async function updateDeliveryGuy(deliveryGuyUpdateData) {
+  console.log(deliveryGuyUpdateData)
+  const response = await fetch(`${DOMAIN}/orders/update-delivery_guy_id`, {
+    method: 'PUT',
+    body: JSON.stringify(deliveryGuyUpdateData),
     headers: {
       'Content-Type': 'application/json',
     },

@@ -117,6 +117,7 @@ function OrderDetails (){
         watch_price={loadedOrder.watch_price}
         quantity={loadedOrder.quantity}
         delivery_price={loadedOrder.delivery_price}
+        delivery_guy={loadedOrder.delivery_guy}
         comment={loadedOrder.comment}
         order_treatment={loadedOrder.order_treatment}
         order_status={loadedOrder.order_status}

@@ -7,6 +7,7 @@ import { Table } from 'react-bootstrap';
 function ReservationsComponent (props){
     const orders = props.orders;
 
+
     return (
         <Fragment>
         <div>

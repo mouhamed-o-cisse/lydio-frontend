@@ -21,9 +21,10 @@ function InDeliveryOrdersComponent (props){
                 <th>Date de la commande</th>
                 <th>Date de livraison</th>
                 <th>Commentaire</th>
-                <th>Créneau</th>
-                <th>Dernière maj du statut de la commande</th>
+                <th>Livreur</th>
+                {/* <th>Dernière maj du statut de la commande</th> */}
                 <th>Details</th>
+                <th>Affecter à un autre livreur</th>
               </tr>
             </thead>
             <tbody>
@@ -38,6 +39,8 @@ function InDeliveryOrdersComponent (props){
                       registration_date={orders.registration_date}
                       shopify_order_id={orders.shopify_order_id}
                       delivery_date={orders.delivery_date}
+                      delivery_guy={orders.delivery_guy}
+                      delivery_status={orders.delivery_status}
                       order_status={orders.order_status}
                       comment={orders.comment}
                       creneau={orders.creneau}

@@ -54,9 +54,9 @@ const MainNavigation = () => {
           <NavDropdown.Item as={Link} to="/retours" >Retours</NavDropdown.Item>
         </NavDropdown>)}
         
-        {/* {isLoggedIn && ( <LinkContainer to="/en-cours-de-livraison">
-            <Nav.Link className={navData => navData.isActive ? classes.active : '' }> En cours de livraison </Nav.Link>*/}
-  
+         <LinkContainer to="/livreurs">
+            <Nav.Link className={navData => navData.isActive ? classes.active : '' }> Livreurs </Nav.Link>
+         </LinkContainer>
           {isLoggedIn && (<Dropdown>
   
             <Dropdown.Toggle variant="success" id="dropdown-basic">
