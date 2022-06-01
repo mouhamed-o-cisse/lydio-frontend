@@ -42,6 +42,7 @@ const MainNavigation = () => {
           <NavDropdown.Item as={Link} to="/confirmees" >Confirmées</NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item as={Link} to="/annulees" >Annulées</NavDropdown.Item>
+          <NavDropdown.Item as={Link} to="/toute-les-commandes" >Toutes les commandes</NavDropdown.Item>
         </NavDropdown>
         )}
         </Nav>

@@ -4,7 +4,7 @@ import OrderItem from './OrderItem';
 import { Table } from 'react-bootstrap';
 
 
-function DeliveredOrdersComponent (props){
+function ReturnedOrdersComponent (props){
     const orders = props.orders;
 
     return (
@@ -20,9 +20,7 @@ function DeliveredOrdersComponent (props){
                 <th>Date d'enregistrement</th>
                 <th>Date de la commande</th>
                 <th>Date de livraison</th>
-                <th>Commentaire</th>
-                <th>Créneau</th>
-                <th>Dernière maj du statut de la commande</th>
+                <th>Livreur</th>
                 <th>Details</th>
               </tr>
             </thead>
@@ -52,4 +50,4 @@ function DeliveredOrdersComponent (props){
     ) 
 }
 
-export default DeliveredOrdersComponent;
+export default ReturnedOrdersComponent;

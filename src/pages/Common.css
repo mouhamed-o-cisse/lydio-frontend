@@ -17,6 +17,7 @@
 
 .todisplay{
     display: none;
+
 }
 
 thead th{
@@ -49,5 +50,15 @@ tbody th {
     }
     .todisplay{
         display: block;
+    }
+    thead th{
+        font-size: 10px;
+        /* font-size: medium; */
+        
+    }
+    
+    tbody th {
+        font-size: 9px;
+        font-weight: 400;
     }
   }

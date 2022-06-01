@@ -20,7 +20,6 @@ function InDeliveryOrdersComponent (props){
                 <th>Date d'enregistrement</th>
                 <th>Date de la commande</th>
                 <th>Date de livraison</th>
-                <th>Commentaire</th>
                 <th>Livreur</th>
                 {/* <th>Dernière maj du statut de la commande</th> */}
                 <th>Details</th>

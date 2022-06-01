@@ -28,6 +28,7 @@ function UnreachableClientsComponent (props){
                       key={orders.order_id}
                       order_id={orders.order_id}
                       order_date={orders.order_date}
+                      order_status={orders.order_status}
                       names={orders.names}
                       client_phone_number={orders.client_phone_number}
                       delivery_address={orders.delivery_address}

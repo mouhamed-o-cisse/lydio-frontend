@@ -19,9 +19,9 @@ import DeliveryStatusButtons from '../StatusButtons/DeliveryStatusButtons';
 
 const HighlightedOrder = (props) => {
 
-  const convertedOrderDate = new Date (props.order_date).toLocaleString('fr-FR', { dateStyle: 'full', timeStyle: 'medium' })
+  const convertedOrderDate = new Date (props.order_date).toLocaleString('fr-FR', { dateStyle: 'full'})
   const convertedRegistrationDate = new Date (props.registration_date).toLocaleString('fr-FR', { dateStyle: 'full', timeStyle: 'medium' })
-  const convertedDeliveryDate = new Date (props.delivery_date).toLocaleString('fr-FR', { dateStyle: 'full', timeStyle: 'medium' })
+  const convertedDeliveryDate = new Date (props.delivery_date).toLocaleString('fr-FR', { dateStyle: 'full'})
   const convertedOrderStatusLastUpdate = new Date (props.order_status_last_update).toLocaleString('fr-FR', { dateStyle: 'full', timeStyle: 'medium' })
   const convertedDeliveryStatusLastUpdate = new Date (props.delivery_status_last_update).toLocaleString('fr-FR', { dateStyle: 'full', timeStyle: 'medium' })
  
@@ -132,7 +132,7 @@ const HighlightedOrder = (props) => {
   return (
     <div>
     <figure className={classes.quote}>
-    { ( (props.order_status === 'confirmed' && props.delivery_status === 'in-preparation' ) && 
+    { ( (props.order_status === 'confirmed' && props.delivery_status !== 'delivered' ) && 
       <button className='btn' style={printStyle} onClick={() => window.print()}>Imprimer</button> 
       )}
       {/* {frenchDate} <br/> */}
@@ -341,7 +341,6 @@ const HighlightedOrder = (props) => {
           <div className="span4 well">
             <table className="invoice-head">
               <tbody>
-     
                 <tr>
                   <td className="pull-right"><strong>Prénom et Nom : </strong></td>
                   <td>{props.names}</td>
@@ -367,7 +366,6 @@ const HighlightedOrder = (props) => {
                   {props.person_to_join_in_case &&<td>{props.person_to_join_in_case}</td> }
                   {!props.person_to_join_in_case &&<td>néant</td> }
                 </tr>
-     
               </tbody>
             </table>
           </div>
@@ -398,7 +396,6 @@ const HighlightedOrder = (props) => {
                 <td>{props.delivery_price}</td>
                 <td>{ +props.watch_price + +props.delivery_price}</td>
               </tr>
-              
               </tbody>
             </table>
             </div>
@@ -446,7 +443,6 @@ const HighlightedOrder = (props) => {
           <div className="span4 well">
             <table className="invoice-head">
               <tbody>
-     
                 <tr>
                   <td className="pull-right"><strong>Prénom et Nom : </strong></td>
                   <td> {props.names}</td>
@@ -472,7 +468,6 @@ const HighlightedOrder = (props) => {
                   {props.person_to_join_in_case &&<td>{props.person_to_join_in_case}</td> }
                   {!props.person_to_join_in_case &&<td>néant</td> }
                 </tr>
-     
               </tbody>
             </table>
           </div>
@@ -503,7 +498,6 @@ const HighlightedOrder = (props) => {
                 <td>{props.delivery_price}</td>
                 <td>{ +props.watch_price + +props.delivery_price}</td>
               </tr>
-              
               </tbody>
             </table>
             </div>

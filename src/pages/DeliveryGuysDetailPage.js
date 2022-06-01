@@ -75,7 +75,7 @@ function DeliveryGuysDetailPage (){
   }
 
  
-  console.log(loadedOrders)
+  // console.log(loadedOrders)
   return (
     <Fragment>   
 

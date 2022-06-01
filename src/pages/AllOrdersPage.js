@@ -1,16 +1,14 @@
 import { useEffect } from 'react';
 import { Fragment } from 'react';
-import ReturnedOrdersComponent from '../components/Orders/ReturnedOrdersComponent';
-// import LoadingSpinner from '../components/UI/LoadingSpinner';
-// import NoQuotesFound from '../components/quotes/NoQuotesFound';
+import AllOrdersComponent from '../components/Orders/AllOrdersComponent';
 import useHttp from '../hooks/use-http';
-import { getReturnedOrder } from '../lib/api';
+import { getAllOrders } from '../lib/api';
 
 import './Common.css';
 
-function ReturnedOrders (){
+function AllOrdersPage (){
     const { sendRequest, status, data: loadedOrders, error } = useHttp(
-        getReturnedOrder,
+        getAllOrders,
         true
       );
     
@@ -35,18 +33,18 @@ function ReturnedOrders (){
       if (status === 'completed-successfully' && (!loadedOrders || loadedOrders.length === 0)) {
         // return <NoQuotesFound />;
         return (
-         <div>
-            <h1 className='title'> Retours : {loadedOrders.length} </h1>
-            <p className='title'>Pas de retours</p>
+         <div className='noorder'>
+            <h1 className='title'> Commandes : {loadedOrders.length} </h1>
+            <p className='title'>Pas de commandes</p>
           </div>
           )
       }
         return (
           <Fragment>
-            <h1 className='title'> Retours : {loadedOrders.length} </h1>
-            <ReturnedOrdersComponent orders={loadedOrders} orderLength={loadedOrders.length} />
+            <h1 className='title'> Toutes les commandes : {loadedOrders.length} </h1>
+            <AllOrdersComponent orders={loadedOrders} orderLength={loadedOrders.length} />
           </Fragment>    
         );
 }
 
-export default ReturnedOrders;
+export default AllOrdersPage;

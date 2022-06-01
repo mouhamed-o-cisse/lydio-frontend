@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Fragment } from 'react';
-import ConfirmedOrdersComponent from "../components/Orders/ConfirmedOrdersComponent";
+import DeliveredOrdersComponent from '../components/Orders/DeliveredOrdersComponent';
 // import LoadingSpinner from '../components/UI/LoadingSpinner';
 // import NoQuotesFound from '../components/quotes/NoQuotesFound';
 import useHttp from '../hooks/use-http';
@@ -44,7 +44,7 @@ function DeliveredOrders (){
         return (
           <Fragment>
             <h1 className='title'> Commandes livrées : {loadedOrders.length} </h1>
-            <ConfirmedOrdersComponent orders={loadedOrders} orderLength={loadedOrders.length} />
+            <DeliveredOrdersComponent orders={loadedOrders} orderLength={loadedOrders.length} />
           </Fragment>    
         );
 }

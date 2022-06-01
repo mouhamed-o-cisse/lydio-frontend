@@ -37,7 +37,7 @@ function useHttp2(requestFunction, startWithPending = false) {
 
   const sendRequest2 = useCallback(
     async function (requestData) {
-      console.log(requestData);
+      // console.log(requestData);
       dispatch({ type: 'SEND' });
       try {
         const responseData = await requestFunction(requestData);

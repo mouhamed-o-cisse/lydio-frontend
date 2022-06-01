@@ -3,6 +3,31 @@ const DOMAIN = 'https://lydio-backend-app.herokuapp.com';
 
 // get delivery guy list  
 
+export async function getAllOrders() {
+  const response = await fetch(`${DOMAIN}/orders/get-all`);
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || 'Could not fetch quotes.');
+  }
+
+  const AllOrders = [];
+
+  for (const key in data) {
+    const quoteObj = {
+      id: key,
+      ...data[key],
+    };
+
+    AllOrders.push(quoteObj);
+  }
+  // console.log(NotTreatedOrders)
+
+  return AllOrders;
+}
+
+// get delivery guy list  
+
 export async function getDeliveryGuysList() {
   const response = await fetch(`${DOMAIN}/delivery_guy/get-all`);
   const data = await response.json();

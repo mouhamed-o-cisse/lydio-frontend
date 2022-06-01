@@ -32,6 +32,7 @@ function NotTreatedOrdersComponent (props){
                       order_id={orders.order_id}
                       order_date={orders.order_date}
                       names={orders.names}
+                      order_treatment = {orders.order_treatment}
                       client_phone_number={orders.client_phone_number}
                       delivery_address={orders.delivery_address}
                       registration_date={orders.registration_date}

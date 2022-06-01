@@ -6,7 +6,7 @@ function OrdersToBring (props){
 
   let validOrders =  [];
 
-  let eachDate = '';
+  // let eachDate = '';
 
   let date = new Date();
 
@@ -18,13 +18,13 @@ function OrdersToBring (props){
       }
     });
 
-    orders.forEach(order => {
-      eachDate = new Date (order.delivery_date).toLocaleString('fr-FR', { dateStyle: 'full' })
-    });
+    // orders.forEach(order => {
+    //   eachDate = new Date (order.delivery_date).toLocaleString('fr-FR', { dateStyle: 'full' })
+    // });
 
   // const convertedDeliveryDate = new Date (orders.delivery_date).toLocaleString('fr-FR', { dateStyle: 'full', timeStyle: 'medium' })
   const departDate = new Date (date).toLocaleString('fr-FR', { dateStyle: 'full', timeStyle: 'medium' })
-  console.log(departDate)
+  // console.log(departDate)
 
   const printStyle = {
     margin: '10px',
@@ -57,7 +57,7 @@ function OrdersToBring (props){
             <tbody >
             {validOrders.map((orders) => ( 
                 <tr key={orders.order_id}>
-                <th>{eachDate}</th>
+                <th>{new Date (orders.delivery_date).toLocaleString('fr-FR', { dateStyle: 'full' })}</th>
                 <th>{orders.delivery_address}</th>
                 <th>{orders.names}</th>
                 <th>{orders.client_phone_number}</th>

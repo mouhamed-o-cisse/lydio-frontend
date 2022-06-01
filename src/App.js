@@ -21,6 +21,7 @@ import CancelledOrders from './pages/CancelledOrders';
 import ReturnedOrders from './pages/ReturnedOrders';
 import DeliveryGuysPage from './pages/DeliveryGuysPage';
 import DeliveryGuysDetailPage from './pages/DeliveryGuysDetailPage';
+import AllOrdersPage from './pages/AllOrdersPage';
 
 function App() {
   const authCtx = useContext(AuthContext);
@@ -54,6 +55,7 @@ function App() {
   {authCtx.isLoggedIn && ( <Route path='/retours' element={<ReturnedOrders />} />)}
   {authCtx.isLoggedIn && ( <Route path='/en-cours-de-livraison' element={<InDeliveryOrders />} />)}
   {authCtx.isLoggedIn && ( <Route path='/livrees' element={<DeliveredOrders />} />)}
+  {authCtx.isLoggedIn && ( <Route path='/toute-les-commandes' element={<AllOrdersPage />} />)}
   {authCtx.isLoggedIn && ( <Route path='/livreurs' element={<DeliveryGuysPage />} />)}
   {authCtx.isLoggedIn && ( <Route path='*' element={<NotFoundPage />} /> )}
 
