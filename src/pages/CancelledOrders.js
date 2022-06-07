@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Fragment } from 'react';
-import NotTreatedOrdersComponent from "../components/Orders/NotTreatedOrdersComponent";
+import CancelledOrdersComponent from '../components/Orders/CancelledOrdersComponent';
 // import LoadingSpinner from '../components/UI/LoadingSpinner';
 // import NoQuotesFound from '../components/quotes/NoQuotesFound';
 import useHttp from '../hooks/use-http';
@@ -44,7 +44,7 @@ function CancelledOrders (){
         return (
           <Fragment>
             <h1 className='title'> Commandes annulées : {loadedOrders.length} </h1>
-            <NotTreatedOrdersComponent orders={loadedOrders} orderLength={loadedOrders.length} />
+            <CancelledOrdersComponent orders={loadedOrders} orderLength={loadedOrders.length} />
           </Fragment>    
         );
 }

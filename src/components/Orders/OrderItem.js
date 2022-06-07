@@ -118,7 +118,7 @@ function OrderItem (props){
         <tr className={classes.all}>
          {props.shopify_order_id && <td>{props.shopify_order_id}</td> }
          {!props.shopify_order_id && <td>neant</td> }
-         <td>{props.names}sss</td>
+         <td>{props.names}</td>
          <td>{props.client_phone_number}</td>
          <td>{props.delivery_address}</td>
          <td>{registrationDate}</td>
