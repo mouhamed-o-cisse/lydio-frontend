@@ -50,7 +50,7 @@ function OrdersToBring (props){
                 <th>Montant </th>
                 <th>Numero commande</th>
                 <th>Commentaire</th>
-                <th className='tohide'>Statut</th>
+                <th>Statut</th>
                 <th className='tohide'>Details</th>
               </tr>
             </thead>
@@ -66,6 +66,7 @@ function OrdersToBring (props){
                 <th>{+orders.watch_price + +orders.delivery_price}</th>
                 <th>{orders.invoice_id}</th>
                 <th>{orders.comment}</th>
+                <th className='todisplay' >Livré <br/> --- <br/> Pas livré</th>
                 { orders.delivery_status === 'delivered' && <th className='tohide'>Livré</th>}
                 { orders.delivery_status === 'in-delivery' && <th className='tohide'>En cours de livraison</th>}
                 { orders.delivery_status === 'return' && <th className='tohide'>Retour</th>}
@@ -78,6 +79,13 @@ function OrdersToBring (props){
             ))}
              </tbody>
           </Table>
+          <div className='todisplay'>
+            <h6>Montant total des commandes livrées: </h6>
+            <h6>Montant total des livraisons : </h6>
+            <h6>Montant total restant : </h6>
+
+            <h5>Signature du livreur <span className='span'>Signature du receveur</span></h5>
+          </div>
         </div>  }         
 
     </Fragment>
