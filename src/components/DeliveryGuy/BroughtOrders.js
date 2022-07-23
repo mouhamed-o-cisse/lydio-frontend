@@ -22,6 +22,12 @@ function BroughtOrders (props){
       }
     });
 
+    orders.forEach(orderreturned => {
+      if (orderreturned.delivery_status === "return"){
+        returnedOrders.push(orderreturned);
+      }
+    });
+
 
     // const convertedDeliveryDate = new Date (orders.delivery_date).toLocaleString('fr-FR', { dateStyle: 'full', timeStyle: 'medium' })
 
