@@ -20,6 +20,7 @@ function ReturnedOrdersComponent (props){
                 <th>Date d'enregistrement</th>
                 <th>Date de la commande</th>
                 <th>Date de livraison</th>
+                <th>Raison du retour</th>
                 <th>Livreur</th>
                 <th>Details</th>
               </tr>
@@ -40,6 +41,7 @@ function ReturnedOrdersComponent (props){
                       order_status={orders.order_status}
                       comment={orders.comment}
                       creneau={orders.creneau}
+                      return_reasons={orders.return_reasons}
                       order_status_last_update={orders.order_status_last_update}
                     />
                   ))}

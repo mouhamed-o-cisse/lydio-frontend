@@ -185,12 +185,14 @@ function OrderItem (props){
         <tr className={classes.all}>
          {props.shopify_order_id && <td>{props.shopify_order_id}</td> }
          {!props.shopify_order_id && <td>neant</td> }
-         <td>{props.names} assa</td>
+         <td>{props.names}</td>
          <td>{props.client_phone_number}</td>
          <td>{props.delivery_address}</td>
          <td>{registrationDate}</td>
          <td>{orderDate}</td>
          <td>{deliveryDate}</td>
+         <td>{props.return_reasons}</td>
+
          { props.delivery_guy &&  <td>{props.delivery_guy}</td> }
          { !props.delivery_guy &&  <td>Pas de liveur</td> }
          <td>
