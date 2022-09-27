@@ -38,13 +38,16 @@
 
   .invoice{
     display: none;
-    margin-bottom: 300px;
-
+    /* margin-bottom: 300px; */
   }
  .invoiceheader{
-   margin-top: 20px;
+   margin-top: 15px;
    font-size: 10px;
    font-weight: bold;
+ }
+
+ .info{
+   border: 1px solib black;
  }
 
   @media print {
@@ -56,5 +59,15 @@
     }
    .invoice{
      display: block;
+     margin : 20px 0 400px 0;
    }
+
+   .invoice tbody td{
+     font-size: 15px;
+  }
+
+  /* .info{
+    border: 1px solib black;
+  } */
+
   }
