@@ -124,9 +124,9 @@ const HighlightedOrder = (props) => {
     margin: '10px',
   };
 
-  const invoiceHeadText = {
-    FontSize : '8px'
-  }
+  // const invoiceHeadText = {
+  //   FontSize : '8px'
+  // }
 
   
   // const frenchDate = props.order_date
@@ -346,7 +346,9 @@ const HighlightedOrder = (props) => {
       <div className="span4">
          {/* <img src={logo} className="invoice-img" /> */}
          <img src={logo} style={imgStyle} alt='logo' className="invoice-img" />
-         <p className={classes.invoiceheader}>Numéro facture : {props.invoice_id}</p>
+         <p className={classes.invoiceheader}>----------------------------------------------</p>
+         <h2 style={h1Style}>{props.invoice_id}</h2>
+         {/* <h2 style={h1Style}> NC :{props.shopify_order_id}</h2> */}
          <p className={classes.invoiceheader}>Numéro commande : {props.shopify_order_id}</p>
         {/* <address>
             <strong>Osiris Watches</strong><br/>
@@ -475,16 +477,18 @@ const HighlightedOrder = (props) => {
 
       <div className="container">
         <div className="row">
-          <div className="span4">
-             {/* <img src={logo} className="invoice-img" /> */}
-             <img src={logo} style={imgStyle} alt='logo' className="invoice-img" />
-             <p className={classes.invoiceheader}>Numéro facture : {props.invoice_id}</p>
-             <p className={classes.invoiceheader}>Numéro commande : {props.shopify_order_id}</p>
-            {/* <address>
-                <strong>Osiris Watches</strong><br/>
-               Dakar, Sénégal
-            </address> */}
-          </div>
+        <div className="span4">
+         {/* <img src={logo} className="invoice-img" /> */}
+         <img src={logo} style={imgStyle} alt='logo' className="invoice-img" />
+         <p className={classes.invoiceheader}>----------------------------------------------</p>
+         <h2 style={h1Style}>{props.invoice_id}</h2>
+         {/* <h2 style={h1Style}> NC :{props.shopify_order_id}</h2> */}
+         <p className={classes.invoiceheader}>Numéro commande : {props.shopify_order_id}</p>
+        {/* <address>
+            <strong>Osiris Watches</strong><br/>
+           Dakar, Sénégal
+        </address> */}
+      </div>
           <div className="span4 well">
             <table className="invoice-head">
               <tbody>
