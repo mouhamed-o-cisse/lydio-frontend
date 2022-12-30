@@ -349,7 +349,7 @@ const HighlightedOrder = (props) => {
          <p className={classes.invoiceheader}>--------------------</p>
          <h2 style={h1Style}>{props.invoice_id}</h2>
          {/* <h2 style={h1Style}> NC :{props.shopify_order_id}</h2> */}
-         <p className={classes.invoiceheader}>Numéro commande : {props.shopify_order_id}</p>
+         <h2 className={classes.invoiceheader}>Numéro commande : {props.shopify_order_id}</h2>
         {/* <address>
             <strong>Osiris Watches</strong><br/>
            Dakar, Sénégal
@@ -483,7 +483,7 @@ const HighlightedOrder = (props) => {
          <p className={classes.invoiceheader}>--------------------</p>
          <h2 style={h1Style}>{props.invoice_id}</h2>
          {/* <h2 style={h1Style}> NC :{props.shopify_order_id}</h2> */}
-         <p className={classes.invoiceheader}>Numéro commande : {props.shopify_order_id}</p>
+         <h2 className={classes.invoiceheader}>Numéro commande : {props.shopify_order_id}</h2>
         {/* <address>
             <strong>Osiris Watches</strong><br/>
            Dakar, Sénégal

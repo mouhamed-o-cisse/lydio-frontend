@@ -75,7 +75,7 @@ function OrderDetails (){
   if (status2 === 'completed-error'){
     return (
       <div className='centered'>
-        <p>an error occured</p>
+        <p>an error vvv occured</p>
       </div>
     );
   }

@@ -23,6 +23,7 @@ function httpReducer(state, action) {
       error2: action.errorMessage,
       status2: 'completed-error',
     };
+    
   }
 
   return state;
