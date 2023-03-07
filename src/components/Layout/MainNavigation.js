@@ -31,7 +31,7 @@ const MainNavigation = () => {
     <div className={classes.header}>
       <Navbar collapseOnSelect expand="lg" bg="dark" sticky="top" variant="dark" fixed="top">
     <Container sticky="top" variant="dark" fixed="top">
-      <Navbar.Brand as={Link} to="/">Lydio gestion des commandes</Navbar.Brand>
+      <Navbar.Brand as={Link} to="/">Lydio gestion des commandes  </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
