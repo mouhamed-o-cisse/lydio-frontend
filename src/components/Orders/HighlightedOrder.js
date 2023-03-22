@@ -345,8 +345,8 @@ const HighlightedOrder = (props) => {
     <div className="row">
       <div className="span4">
          {/* <img src={logo} className="invoice-img" /> */}
-         <img src={logo} style={imgStyle} alt='logo' className="invoice-img" />
-         <p className={classes.invoiceheader}>--------------------</p>
+         {/* <img src={logo} style={imgStyle} alt='logo' className="invoice-img" />
+         <p className={classes.invoiceheader}>--------------------</p> */}
          <h2 style={h1Style}>{props.invoice_id}</h2>
          {/* <h2 style={h1Style}> NC :{props.shopify_order_id}</h2> */}
          <h3 style={h1Style}>Numéro commande : {props.shopify_order_id}</h3>
@@ -447,10 +447,10 @@ const HighlightedOrder = (props) => {
       <div className="row">
         <div className="span8 well invoice-thank">
           <h5 style={centerStyle}>Merci pour la confiance!</h5>
-          <h5 style={centerStyle}>OSIRIS vous assure une garantie d’un an pour votre (vos) montre(s) pour tout défaut de fabrication.</h5>
+          <h5 style={centerStyle}>Vous avez une garantie d’un an pour votre (vos) montre(s) pour tout défaut de fabrication.</h5>
         </div>
       </div>
-      <div className="row" style={h11Style}>
+      {/* <div className="row" style={h11Style}>
           <div className="span3">
               <strong>Service Client:</strong> <br></br> +221 76 499 53 53
           </div>
@@ -462,7 +462,7 @@ const HighlightedOrder = (props) => {
             <img src={qrcode} style={qrcodeStyle} alt='qrcode' className="invoice-img" /> <br/>
             <h6 style={h6Style}>Scannez moi pour acceder au siteweb</h6>
           </div>
-      </div>
+      </div> */}
     </div>
   </div>
 </div>    
@@ -575,7 +575,7 @@ const HighlightedOrder = (props) => {
               <h5 style={centerStyle}>OSIRIS vous assure une garantie d’un an pour votre (vos) montre(s) pour tout défaut de fabrication.</h5>
             </div>
           </div> */}
-          <div className="row" style={h11Style}>
+          {/* <div className="row" style={h11Style}>
               <div className="span3">
                   <strong>Service Client:</strong> <br></br> +221 76 499 53 53
               </div>
@@ -585,7 +585,7 @@ const HighlightedOrder = (props) => {
               <div className="span3">
                   <strong>Website:</strong> <br></br> www.osiris-sn.com
               </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>  
