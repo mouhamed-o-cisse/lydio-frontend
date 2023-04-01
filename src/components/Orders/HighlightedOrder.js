@@ -479,8 +479,8 @@ const HighlightedOrder = (props) => {
         <div className="row">
         <div className="span4">
          {/* <img src={logo} className="invoice-img" /> */}
-         <img src={logo} style={imgStyle} alt='logo' className="invoice-img" />
-         <p className={classes.invoiceheader}>--------------------</p>
+         {/* <img src={logo} style={imgStyle} alt='logo' className="invoice-img" /> */}
+         {/* <p className={classes.invoiceheader}>--------------------</p> */}
          <h2 style={h1Style}>{props.invoice_id}</h2>
          {/* <h2 style={h1Style}> NC :{props.shopify_order_id}</h2> */}
          <h3 style={h1Style}>Numéro commande : {props.shopify_order_id}</h3>
